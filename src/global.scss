@@ -1,0 +1,427 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+//Estilos propios
+
+ion-content.background {
+  --background: url(./assets/img/background.png) no-repeat center center / cover;
+}
+
+
+.text-primary {
+    color: var( --ion-color-primary ) !important;
+
+}
+
+.noticias-source-name {
+    font-size: 12px;
+    color: lightgray;
+}
+
+.action-dark, .action-sheet-group {
+    background-color: var( --ion-color-dark ) !important;
+    color: white !important;
+}
+
+.action-dark ion-icon {
+    color: white !important;
+}
+
+
+.ios .action-sheet-icon {
+    display: none !important;
+}
+
+.tab-selected{
+    color: var( --ion-color-primary ) !important;
+}
+
+.my-loading {
+  opacity: 0.9;
+  color: #edbc37 !important;
+}
+
+.azul span, .azul .sc-ion-action-sheet-md{
+    color: blue !important;
+}
+
+
+
+
+.col {
+  --background: none !important;
+  opacity:1 !important;
+  border-color: #edbc37 !important;
+  border-width: 3px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.class-item {
+  border-radius: 10px;
+  border-color: #edbc37 !important;
+  border-width: 3px !important;
+}
+
+
+.texto-nombre-campo {
+  color: #edbc37;
+  font-size: 15px !important;
+}
+
+
+
+.texto-subtitle-card {
+  color: #edbc37;
+  font-size: 20px !important;
+  margin-left: 15px;
+}
+
+.titulo-campo-form {
+  font-size: 30px;
+}
+
+.my-custom-modal-detalle-deuda .modal-wrapper {
+   height: 80%;
+   width: 95%;
+   top: 80%;
+   position: center;
+   display: block;
+   border-radius: 20px;
+   border-color: red;
+   border-width: 4px;
+}
+
+.error-message
+{
+  color: red ;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 5px; 
+}
+
+
+ion-refresher {
+  background-color: #edebe6;
+}
+
+.rojo span, .rojo .sc-ion-action-sheet-md{
+    color: red !important;
+}
+
+.verde span, .verde .sc-ion-action-sheet-md{
+  color: green !important;
+}
+
+
+h1 {
+  font-size: 18px;
+}
+
+
+.titulo-pagina {
+  color: var( --color-yellow );
+  font-size: 25px;
+  font-weight: bold;
+}
+
+
+.swiper-pagination-bullet-active {
+  background: gray !important;
+}
+
+.swiper-pagination-bullets {
+  margin-top: 150px !important;
+}
+
+
+.button-style {
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  background-color: var(--color-yellow);
+  padding: 15px 32px;
+}
+
+.campo-texto {
+  color: gray !important;
+  font-size: 20px !important;
+}
+
+
+.text-explicativo {
+  color: gray;
+  font-size: 13px;
+}
+
+ion-item {
+  --background: none !important;
+  opacity:1 !important;
+}
+
+ion-label {
+  color: gray !important;
+  font-size: 20px !important;
+}
+
+ion-input {
+  color: #000 !important;
+  font-size: 20px !important;
+  --padding-bottom: 0px !important;
+}
+
+ion-datetime {
+  --padding-bottom: 0px !important;
+}
+
+ion-item {
+  --background: none !important;
+  --border-color: var(--color-yellow); // default underline color
+  --highlight-color-invalid: var(--color-red); // invalid underline color
+  --highlight-color-valid: var(--color-green);; // valid underline color
+}
+
+
+ion-segment {
+  --background: var(--color-yellow) !important;
+}
+
+ion-segment-button {
+  --background: #f5f3f0 !important;
+  --background-checked: #d6d2cb !important;
+  --color-checked: var(--color-yellow) !important;
+}
+
+ion-tab-button{
+  --background-focused: var(--color-yellow) !important;
+  --color-selected: var(--color-yellow) !important;
+  --ion-tabbar-text-color-active : var(--color-yellow) !important;
+}
+
+
+
+
+
+h2 {
+  color: #000;
+
+}
+
+.texto-title-gray {
+  color: gray;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  text-align: left;
+}
+
+.texto-title-yellow {
+  font-size: 18px !important;
+  color: var(--color-yellow)  !important;
+  font-weight: bold;
+}
+
+.texto-title-black {
+  font-size: 18px !important;
+  color: #000  !important;
+  font-weight: bold;
+}
+
+.my-custom-modal-css .modal-wrapper {
+  height: 70%;
+  width: 90%;
+  top: 80%;   
+  border-radius: 2%;
+}
+
+.my-custom-modal2-css .modal-wrapper {
+  height: 50%;
+  width: 95%;
+  top: 20%;
+  padding: 10%;
+  position: absolute;
+  display: block;
+  border-radius: 2%;
+}
+
+.my-custom-modal3-css .modal-wrapper {
+  height: 90%;
+  width: 95%;
+  top: 3%;
+  padding: 10%;
+  position: absolute;
+  display: block;
+  border-radius: 2%;
+}
+
+
+.back-header {
+  font-size: 25px;
+  margin-top: 30px;
+  margin-left: 17px;
+  color: gray;
+}
+
+@media screen and (min-height: 1023px){
+  
+  p {
+      font-size: 24px !important;
+  }
+
+  h5 {
+    font-size: 44px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+
+  .titulo-pagina {
+    font-size: 25px;
+  }
+
+  .button-style {
+    font-size: 23px;
+  }
+
+  .campo-texto {
+    font-size: 28px !important;
+  }
+
+  .text-explicativo {
+    font-size: 23px;
+  }
+
+  ion-label {
+    font-size: 30px !important;
+  }
+
+  ion-input {
+    font-size: 30px !important;
+  }
+
+  h2 {
+    font-size: 30px !important;
+  }
+
+  .texto-title-gray {
+    font-size: 28px !important;
+  }
+
+  .texto-title-yellow {
+    font-size: 30px !important;
+  }
+
+  .texto-title-black {
+    font-size: 28px !important;
+    }
+
+  a {
+    font-size: 30px;
+  }
+
+  h3{
+    font-size: 28px !important;
+  }
+
+}
+
+@media screen and (min-height: 1300px) { 
+  p {
+      font-size: 34px !important;
+  }
+ 
+  h1 {
+    font-size: 34px;
+  }
+
+  h5 {
+    font-size: 44px;
+  }
+
+  .titulo-pagina {
+    font-size: 35px;
+  }
+
+  .button-style {
+    font-size: 33px;
+  }
+
+  .campo-texto {
+    font-size: 38px !important;
+  }
+
+  .text-explicativo {
+    font-size: 33px;
+  }
+
+  ion-label {
+    font-size: 38px !important;
+  }
+
+  ion-input {
+    font-size: 38px !important;
+  }
+
+  h2 {
+    font-size: 38px !important;
+  }
+
+  .texto-title-gray {
+    font-size: 38px !important;
+  }
+
+  .texto-title-yellow {
+    font-size: 30px !important;
+  }
+
+  .texto-title-black {
+    font-size: 37px !important;
+    }
+
+  a {
+    font-size: 30px;
+  }
+  h3{
+    font-size: 35px !important;
+  }
+  .title-name-ticket {
+    font-size: 35px !important;
+  }
+
+
+}
+
+
+
+
+
+
+
+
+

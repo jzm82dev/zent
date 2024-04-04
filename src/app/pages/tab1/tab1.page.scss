@@ -1,0 +1,63 @@
+
+
+.red {
+  color: var(--color-red) !important;
+  font-size: 15px !important;
+}
+
+.green {
+  color: var(--color-green) !important;
+  font-size: 15px !important;
+}
+
+
+.texto-title-participantes {
+  color: var(--color-yellow);
+  font-size: 21px;
+}
+
+
+
+.texto-subtitle-card {
+  color: black ;
+  font-size: 18px !important;
+  margin-right: 25px;
+}
+
+.texto-quien {
+ font-size: 15px !important;
+ font-weight: bold;
+}
+
+.texto-tu {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 15px !important;
+}
+
+.texto-importe-quien {
+  color:  black;
+  font-size: 15px !important;
+}
+
+
+.transparente{
+  margin-top: 8%;
+  border-radius: 15px;
+}
+
+
+.hr {
+  border-bottom: 1px solid var(--color-yellow);;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.data-group {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.total_gastado {
+  color: #000 !important;
+}

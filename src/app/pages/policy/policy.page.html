@@ -1,0 +1,43 @@
+<ion-header no-border>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-icon class="back-header" ios="ios-arrow-back" md="md-arrow-back" (click)="irInicial()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+  
+      <ion-row class="text-center">
+        <ion-col class="col-12 vertical-center text-center margin-logo" >
+              <ion-img src="../../assets/zent.png" ></ion-img>
+          </ion-col>
+      </ion-row>
+    
+      <ion-row class="ion-text-center margin-welcome" > 
+        <ion-col class="col-12">
+          <ion-text class="text-welcome">
+            Te damos la bienvenida a Zent
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="col-12">
+          <ion-text class="text-policy">
+            <p>Lee nuestra <span class="text-policy-link" (click)="openPoliticy()">Política de privacidad</span>. Pulsa "Aceptar y continuar" para aceptar las condiciones del servicio</p>
+            <p class="telephone">Para un uso correcto de la aplicación tu número de teléfono quedará registrado en nuestro sistema. Podrás solicitar la eliminación de tus datos en 
+              cualquier momento enviando un email a zent@fabrikapps.es </p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="col-12 ion-text-center" style="margin-top: 10%;">
+          <button ion-button class='button-style' (click)="accept()">ACEPTAR Y CONTINUAR</button>  
+        </ion-col>
+      </ion-row>
+
+  </ion-grid>
+</ion-content>

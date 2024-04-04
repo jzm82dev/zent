@@ -1,0 +1,124 @@
+<ion-header no-border>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-icon class="back-header" ios="ios-arrow-back" md="md-arrow-back" (click)="irInicial()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="form-content ion-padding" >
+
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text >
+          <h2>Crea tu cuenta</h2>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <!--<form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)" > -->
+    <form [formGroup]="validations_form" class="down">
+
+   <!--
+    <ion-grid *ngIf="tempImages.length == 0" >
+        <ion-row class="alineado ion-text-center">
+            <ion-col size="4"></ion-col>
+            <ion-col size="2" class="derecha">
+              <ion-avatar  >
+                <img src="../../assets/avatar.png">
+              </ion-avatar>
+            </ion-col>
+            <ion-col size="1" >
+              <ion-button fill="clear" (click)="seleccionarImagen()" color="amarillo">
+                <ion-icon slot="icon-only" name="camera"></ion-icon>
+              </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+    <ion-grid *ngIf="tempImages.length > 0" >
+      <ion-row>
+          <ion-col size="3"></ion-col>
+          <ion-col size="2">
+            <ion-avatar *ngFor="let image of tempImages">
+              <img [src]="image | imageSanitizer">
+            </ion-avatar>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    -->
+
+    <ion-item >
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+    <div class="error-message">
+      <ng-container *ngFor="let validation of validation_messages.username">
+        <div class="error-message"
+            *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item >
+      <ion-label position="floating" >Teléfono</ion-label>
+      <ion-input type="tel" maxlength="9" formControlName="telefono"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.telefono">
+        <div class="error-message" *ngIf="validations_form.get('telefono').hasError(validation.type) && (validations_form.get('telefono').dirty || validations_form.get('telefono').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <div class="validation-errors" *ngIf="validations_form.get('telefono').hasError('notUnique')">
+      <ng-container >
+        <div class="error-message" >
+          <ion-icon name="information-circle-outline"></ion-icon> Teléfono ya registrado en la App
+        </div>
+      </ng-container>
+    </div>
+    <div class="error-checking" *ngIf="gTelefono.pending">
+      <ng-container >
+        <div class="checking-message" >
+          <ion-spinner name="circles" color="warning"></ion-spinner> Comprobando si estás dado de alta
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label  position="floating">Contraseña</ion-label>
+      <ion-icon slot="end" class="second-eye" (click)="togglePasswordMode()"></ion-icon>
+      <ion-input  #passwordEyeRegister  [type]="passwordTypeInput"  formControlName="password" clearOnEdit="false"> 
+          </ion-input>
+      <button  item-end  class="btn_eye_icon"  (click)="togglePasswordMode()">
+          <ion-icon  [name]="(passwordTypeInput === 'text')?'eye-off':'eye'"></ion-icon>
+      </button>
+  </ion-item>
+    <div class="error-message">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message"
+            *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-grid>
+      <ion-row class="ion-text-center" style="margin-top: 10%">
+        <ion-col>
+            <button ion-button class='button-style' type="submit" (click)="onSubmit(validations_form.value)"
+            [disabled]="!validations_form.valid">CONTINUAR</button>  
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+
+
+  </form>
+</ion-content>

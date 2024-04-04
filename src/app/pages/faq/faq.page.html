@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <div slot="start" >
+      <ion-buttons slot="start">
+        <ion-button (click)="irInicio()">
+          <ion-icon slot="icon-only" name="arrow-round-back" color="dark"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+    <ion-title class="titulo-pagina"><h2>Preguntas</h2></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <app-mi-accordion-faq 
+    *ngFor="let question of questions" 
+    name="{{ question.title }}" 
+    description="{{ question.response }}" 
+    image="{{ question.image }}" 
+    (change)="captureName($event)">
+  </app-mi-accordion-faq>
+
+</ion-content>

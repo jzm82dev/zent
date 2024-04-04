@@ -1,0 +1,59 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title class="titulo-pagina ion-text-left"><h2></h2></ion-title>
+    <div slot="end" >
+       <ion-button fill="clear" (click)="openMenu()" color="dark">
+         <ion-icon slot="icon-only" name="menu"></ion-icon>
+       </ion-button>
+     </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher  slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content ></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid>
+    <ion-row class="text-center">
+        <ion-col size="12">
+          <img src="../../assets/zent.png" id="imgPlacement">
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-button (click)="misAjustes()" class="butons">
+          <ion-icon name="person"></ion-icon>
+          &nbsp;PERFIL</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-button (click)="listGroup()" class="butons">
+          <ion-icon name="contacts"></ion-icon>
+          &nbsp;GRUPOS</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <hr>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12" class="ion-text-center">
+        <ion-note *ngIf="this.totalGastado >= 0" class="cuantity-positive-text">Te deben</ion-note>
+        <ion-note *ngIf="this.totalGastado < 0" class="cuantity-negative-text">Debes</ion-note>
+      </ion-col>
+      <ion-col size="12" class="ion-text-center">
+        <ion-note *ngIf="this.totalGastado >= 0" class="cuantity-positive">{{ this.totalGastado | number : '1.2-2' }} €</ion-note>
+        <ion-note *ngIf="this.totalGastado < 0" class="cuantity-negative">{{ this.totalGastado | number : '1.2-2' }} €</ion-note>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+
+</ion-content>

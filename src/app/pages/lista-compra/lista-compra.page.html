@@ -1,0 +1,44 @@
+<ion-header no-border translucent>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="salir()">
+        <ion-icon slot="icon-only" name="arrow-round-back"  color="amarillo"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize" class="nombre">{{ listaSeleccionada.titulo }}</ion-title>
+    <div slot="end" class="fecha">{{ listaSeleccionada.fecha_alta | date:'dd-MM-yy' }}</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="form-content ion-padding background">
+
+    <ion-item *ngFor="let producto of productosLista">
+    <ion-label class="campo-texto-lista">{{producto.nombre}}</ion-label>
+    <ion-checkbox *ngIf="producto.comprado == 0"
+          slot="end" mode="ios" color="amarillo"
+          [(ngModel)]="producto.selected"
+          (ionChange)="comprado( producto )">
+    </ion-checkbox>
+    <ion-checkbox *ngIf="producto.comprado != 0"
+          slot="end" mode="ios" checked="true" disabled="true" color="amarillo">
+    </ion-checkbox>
+    </ion-item>
+
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-grid>
+        <ion-row >
+          <ion-col >
+            <ion-button *ngIf="listaSeleccionada.finalizada == 0" expand="block"
+               fill="outline" color="amarillo"
+               (click)="actualizarLista()">Actualizar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,133 @@
+<ion-header>
+  <div id="normalDiv" >
+    <ion-toolbar color="dark" id="normal-toolbar" *ngIf="eliminar == false">
+      <ion-buttons slot="start">
+        <ion-button routerLink="/inicio">
+          <ion-icon slot="icon-only" name="home" color="amarillo"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="titulo-pagina ion-text-center">{{ global.grupo.nombre }}</ion-title>
+    </ion-toolbar>
+  </div>
+
+  <div id="deleteList">
+    <ion-toolbar *ngIf="eliminar == true" color="danger">
+      <ion-buttons slot="start">
+        <ion-button (click)="pantallaNormal()">
+          <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">
+        Eliminar
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="borrarLista( idListaEliminar )">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </div>
+
+  <div id="finalizarDiv">
+    <ion-toolbar *ngIf="finalizar == true" color="amarillo">
+      <ion-buttons slot="start">
+        <ion-button (click)="pantallaNormal()">
+          <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">
+        Finalizar
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="finalizarLista( idListaEliminar )">
+          <ion-icon slot="icon-only" name="thumbs-up"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </div>
+
+  <ion-segment (ionChange)="cambioTipoLista( $event )"
+    scrollable mode="md" color="primary">
+    <ion-segment-button
+        [value]="0" mode="md">
+     <ion-label class="ion-text-capitalize">Pendientes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button
+        [value]="1" mode="md">
+     <ion-label class="ion-text-capitalize">Histórico</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+<ion-content class="form-content ion-padding background">
+
+  <ion-slides [options]="slideOptions"  *ngIf="listasShow.length === 0">
+    <ion-slide>
+      <ion-label  class="texto-title-card">No hay listas de la compra</ion-label>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid fixed>
+    <ion-row>
+       <ion-col *ngFor="let item of listasShow; let i=index; "
+            size="12" size-lg="4" size-md="2" size-md="2" id="col_item_{{item.id}}">
+            <ion-item-sliding id="item100">
+              <ion-item class="gasto" color="grisaceo"
+                        (click)="abrirLista( item.id )"
+                        (pressup)="onPressUp( item.id )">
+                <ion-label >
+                  <h2 class="nombre ion-text-capitalize">
+                    {{ item.titulo }}
+                  </h2>
+                  <p class="ion-text-capitalize por-comprar">
+                    {{item.quedan}} productos por comprar
+                  </p>
+                  <p class="description ion-text-capitalize">
+                    {{item.comprados}} productos comprados
+                  </p>
+                </ion-label>
+                <ion-note slot="end" *ngIf="item.finalizada == 0" >
+                  Creada: {{ item.fecha_alta | date:'dd-MM-yy' }}
+                </ion-note>
+                <ion-note slot="end" *ngIf="item.finalizada == 1" >
+                  Finalizada: {{ item.fecha_fin | date:'dd-MM-yy' }}
+                </ion-note>
+
+              </ion-item>
+
+              <ion-item-options side="start" *ngIf="item.finalizada == 0">
+                <ion-item-option color="amarillo">
+                  <ion-icon slot="icon-only" name="archive" (click)="finalizarLista( item.id )"></ion-icon>
+                </ion-item-option>
+              </ion-item-options>
+              <ion-item-options side="end" *ngIf="item.finalizada == 0">
+                <ion-item-option color="amarillo">
+                  <ion-icon slot="icon-only" name="archive" (click)="finalizarLista( item.id )"></ion-icon>
+                </ion-item-option>
+              </ion-item-options>
+
+              <ion-item-options side="start" *ngIf="item.finalizada == 1">
+                <ion-item-option color="danger">
+                  <ion-icon slot="icon-only" name="trash" (click)="borrarLista( item.id )"></ion-icon>
+                </ion-item-option>
+              </ion-item-options>
+              <ion-item-options side="end" *ngIf="item.finalizada == 1">
+                <ion-item-option color="danger">
+                  <ion-icon slot="icon-only" name="trash" (click)="borrarLista( item.id )"></ion-icon>
+                </ion-item-option>
+              </ion-item-options>
+
+          </ion-item-sliding>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="crearLista()" color="amarillo">
+      <ion-icon name="add" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-header no-border>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-icon class="back-header" ios="ios-arrow-back" md="md-arrow-back" (click)="irInicial()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="form-content ion-padding" >
+
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text >
+          <h2>Inicia sesión</h2>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <form [formGroup]="login_form"  (ngSubmit)="onSubmit(login_form.value)" class="down">
+
+      <ion-item >
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input type="tel" maxlength="9" formControlName="telefono"></ion-input>
+      </ion-item>
+      <div class="validation-errors" *ngIf="login_form.get('telefono').hasError('exitTelefono')">
+        <ng-container >
+          <div class="error-message" >
+            <ion-icon name="information-circle-outline"></ion-icon> Tu teléfono no está registrado en la App.
+          </div>
+        </ng-container>
+      </div>
+      <div class="error-checking" *ngIf="gTelefono.pending">
+        <ng-container >
+          <div class="checking-message" >
+            <ion-spinner name="circles" color="warning"></ion-spinner>
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item >
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.password">
+            <div class="error-message" *ngIf="login_form.get('password').hasError(validation.type) && (login_form.get('password').dirty || login_form.get('password').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+            </div>
+          </ng-container>
+      </div>
+
+      <ion-grid>
+        <ion-row class="ion-text-left">
+        <ion-col>
+          <p><a  (click)="irRecordarContrasena()"> ¿Olvidaste tu contraseña?</a></p>
+        </ion-col>
+      </ion-row>
+        <ion-row class="ion-text-center" style="margin-top: 5%">
+          <ion-col>
+              <button ion-button class='button-style' [disabled]="!login_form.valid" type="submit" >ENTRAR</button>  
+          </ion-col>
+        </ion-row>
+
+        </ion-grid>
+
+    </form>
+
+  </ion-content>

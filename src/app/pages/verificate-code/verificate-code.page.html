@@ -1,0 +1,77 @@
+<ion-header no-border>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-icon class="back-header" ios="ios-arrow-back" md="md-arrow-back" (click)="goBack()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="form-content ion-padding" >
+
+
+
+  <ion-grid>
+    <ion-row style="margin-top: 2%;">
+      <ion-col>
+        <ion-text >
+          <h5>Y por último,</h5>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-left">
+      <ion-col>
+        <p><a> Vamos a comprobar que has introducido bien tu teléfono. Pulsa el botón y te enviaremos un SMS con tu código de verificación para que lo insertes a continuación</a></p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="!showCountdown" class="ion-text-center" style="margin-top: 10%">
+      <ion-col>
+          <button ion-button class='button-style' type="submit" [disabled]="disabledButton" (click)="getCode()">¡RECIBIR CÓDIGO!</button>  
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="showCountdown" >
+      <ion-col>
+        <p><a> Si no recibes tu código {{countDownNumber}} pulsa otra vez sobre el botón</a></p> 
+    </ion-col>
+    </ion-row>
+
+    </ion-grid>
+
+    
+
+  <form *ngIf="showCountdown" [formGroup]="verificate_code_form"  (ngSubmit)="onSubmit()" style="margin-top: 20%;">
+
+    <ion-item >
+      <ion-label  position="floating">Introduce código</ion-label>
+      <ion-input type="tel" formControlName="code"></ion-input>
+    </ion-item>
+   
+    <div class="validation-errors" *ngIf="verificate_code_form.get('code').hasError('correctCode')">
+      <ng-container >
+        <div class="error-message" >
+          <ion-icon name="information-circle-outline"></ion-icon> El código introducido no es correcto
+        </div>
+      </ng-container>
+    </div>
+    <div class="error-checking" *ngIf="gCode.pending">
+      <ng-container >
+        <div class="checking-message" >
+          <ion-spinner name="circles" color="warning"></ion-spinner>
+        </div>
+      </ng-container>
+    </div>
+
+
+
+    <ion-grid>
+      <ion-row class="ion-text-center" style="margin-top: 5%">
+        <ion-col>
+            <button ion-button class='button-style' [disabled]="!verificate_code_form.valid" >CONTINUAR</button>  
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+
+</form>
+
+</ion-content>

@@ -1,0 +1,135 @@
+
+
+  
+ion-row { 
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+ion-back-button{
+    --color: #edbc37 !important;
+  }
+
+  ion-button {
+    --background-color: #edbc37;
+  }
+
+.vertical-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .swiper-wrapper {
+      margin-top: 40px;
+      color: gray;
+  }
+.text-policy-link{
+    color: #edbc37;
+    text-decoration: underline;
+}
+
+p {
+    color: gray;
+    font-size: 14px;
+}
+
+.text-welcome {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.text-accept{
+    margin-top: 8%;
+    color: #edbc37;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.telephone {
+    font-size: 12px;
+    text-align: justify;
+}
+
+.margin-welcome{
+    margin-top: 15%;
+}
+
+.margin-logo{
+    margin-top: 10%;
+}
+
+ion-img {
+    width: 75%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+@media screen and (min-height: 1023px){
+    
+    ion-img {
+        width: 35%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    ion-row { 
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .text-welcome{
+        font-size: 45px
+    }
+
+    .text-accept{
+        font-size: 35px;
+    }
+
+    .margin-welcome{
+        margin-top: 10%;
+    }
+
+}
+
+@media screen and (min-height: 1300px) { 
+    
+    ion-img {
+        width: 35%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    
+    ion-row { 
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .text-welcome{
+        font-size: 45px
+    }
+
+    .text-accept{
+        font-size: 35px;
+    }
+
+    .margin-welcome{
+        margin-top: 10%;
+    }
+
+}
+
+
+@media screen and (max-height: 650px) { 
+
+    .margin-welcome{
+        margin-top: 0%;
+    }
+
+    .margin-logo{
+        margin-top: 0%;
+    }
+}

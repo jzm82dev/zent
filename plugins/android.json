@@ -1,0 +1,40 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    }
+  },
+  "dependent_plugins": {}
+}

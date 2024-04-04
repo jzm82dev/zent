@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="salir()">
+        <ion-icon slot="icon-only" name="arrow-round-back"  color="amarillo"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="titulo-pagina">Nueva lista</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="form-content background">
+
+    <form #formulario="ngForm">
+      <ion-item class="titulo">
+        <ion-label  position="floating" class="campo-texto">Título</ion-label>
+        <ion-input type="text" name="title" required minlength=2
+                  [(ngModel)]="listaCompra.titulo" >
+        </ion-input>
+      </ion-item>
+    </form>
+
+    <ion-segment (ionChange)="cambioCategoria( $event )"
+        scrollable mode="md" color="primary" class="top">
+        <ion-segment-button
+            [value]="0" mode="md">
+            <ion-label
+                class="ion-text-capitalize">Todo
+            </ion-label>
+        </ion-segment-button>
+        <ion-segment-button *ngFor="let categoria of categorias[0];"
+            [value]="categoria.id" mode="md">
+            <ion-label
+                class="ion-text-capitalize">{{ categoria.nombre }}
+            </ion-label>
+        </ion-segment-button>
+        <ion-segment-button
+            [value]="100" mode="md">
+            <ion-label
+                class="ion-text-capitalize">Manualmente
+            </ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <ion-searchbar  *ngIf="mostrar" (ionChange)="search( $event )"
+          type="text" debounce="1000" id="textSearchbar" name="textSearchbar">
+      </ion-searchbar>
+
+      <ion-slides [options]="slideOptions" *ngIf="productosShow.length === 0">
+        <ion-slide>
+          <ion-label>No hay productos </ion-label>
+        </ion-slide>
+      </ion-slides>
+
+
+        <!-- <ion-item *ngFor="let producto of productosShow | filtro: [textoBusqueda] : 'nombre' "> -->
+          <ion-item *ngFor="let producto of productosShow | filtro: [textoBusqueda] : 'nombre' ">
+          <ion-label class="campo-texto-lista">{{producto.nombre}}</ion-label>
+          <ion-checkbox slot="end" mode="ios" color="amarillo"
+              [(ngModel)]="producto.selected"
+              (ionChange)="seleccionado( producto )">
+          </ion-checkbox>
+        </ion-item>
+        <ion-item class="titulo" *ngIf="mostrar">
+          <ion-grid fixed>
+            <ion-row>
+                <ion-col size="10">
+                <ion-input type="text" name="product" class="placeholder"
+                            placeholder="Añadir producto manualmente"
+                            [(ngModel)]="nombre" value=[nombre]>
+                </ion-input>
+                </ion-col>
+                <ion-col size="2" >
+                  <ion-button (click)="agregarProductoManual()" color="amarillo"
+                  [disabled]="!nombre"  fill="outline">OK</ion-button>
+                </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="dark">
+      <ion-button [disabled]="formulario.invalid" slot="end" color="amarillo"
+         (click)="guardarLista()">Listo
+      </ion-button>
+  </ion-toolbar>
+</ion-footer>

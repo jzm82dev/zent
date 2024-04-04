@@ -1,0 +1,45 @@
+
+.avatar {
+  width: 50%;
+}
+
+.foto {
+  width: 60%;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.centrado {
+  margin: auto;
+  margin-top: 1%;
+  display: block;
+}
+
+
+
+ion-checkbox {
+  --background: none !important;
+  --border-color: var(--color-yellow);; // default underline color
+}
+
+
+form {
+  margin-top: 8%;
+}
+
+.submit-btn {
+  margin-top: 40px;
+}
+
+.camara {
+  position: absolute;
+    margin-top: -35px;
+    border: 2px solid #edbc37;
+    width: 50px;
+     height: 50px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+    background-color: #fff;
+}

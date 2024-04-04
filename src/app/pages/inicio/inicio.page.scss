@@ -1,0 +1,69 @@
+
+
+ion-slides, ion-slide{
+    width: 100%;
+    height: 100%;
+    color: #000;
+}
+
+
+.butons {
+    --background: #edbc37;
+    --color: black;
+    border-radius: 10px;
+}
+
+.positive_button{
+    --background: #c6cfce;
+    --color: white;
+    border-radius: 10px;
+}
+
+.negative_button{
+    --background: #D00000;
+    --color: white;
+    border-radius: 10px;
+}
+
+.cuantity-negative{
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cuantity-positive{
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cuantity-positive-text{
+    font-size: 15px;
+    color: black;
+}
+
+.cuantity-negative-text{
+    font-size: 15px;
+    color: black;
+}
+
+
+ion-grid{
+    margin-top: 10%;
+}
+
+ion-row{
+    margin-top: 7%;
+}
+
+hr {
+    border: 0.5px solid grey;
+    opacity: 0.5 !important;
+    visibility: visible !important;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background: #edbc37;;
+  }
+
+
+

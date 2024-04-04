@@ -1,0 +1,156 @@
+<ion-header>
+    <ion-toolbar>
+      <div slot="start" >
+        <ion-button fill="clear" routerLink="/inicio" color="dark">
+          <ion-icon slot="icon-only" name="home"></ion-icon>
+        </ion-button>
+      </div>
+      <ion-title class="titulo-pagina ion-text-left"><h2>{{ global.grupo.nombre }}</h2></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  
+
+  <ion-segment (ionChange)="cambioUsuario( $event )" 
+    scrollable mode="md" >
+    <ion-segment-button
+        [value]="0" mode="md">
+     <ion-label class="ion-text-capitalize texto-title-yellow">Sin Liquidar</ion-label>
+    </ion-segment-button>
+    <ion-segment-button *ngFor="let usuario of users;"
+        [value]="usuario.id" mode="md">
+      <ion-label *ngIf="usuario.id == dlSvc.usuario.telephone"
+          class="ion-text-capitalize texto-title-yellow" style="font-style: italic;">Tú
+      </ion-label>
+      <ion-label *ngIf="usuario.id != dlSvc.usuario.telephone"
+          class="ion-text-capitalize texto-title-yellow" >{{ usuario.name }}
+      </ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+<ion-content class="form-content ion-padding" >
+
+  <ion-refresher  slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content ></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-slides [options]="slideOptions"  *ngIf="comprasShow.length === 0">
+    <ion-slide>
+      <ion-label class="texto-title-card">No hay gastos</ion-label>
+    </ion-slide>
+  </ion-slides>
+
+
+  <!-- SKELETON -->
+  <ion-list *ngIf="datosLeidos == 0" class="transparente ">
+    <ion-item >
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated class="ion-float-right" style="width: 15%"></ion-skeleton-text>
+        <h3>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-card-header>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-card-header>
+  </ion-list>
+  <ion-list *ngIf="datosLeidos == 0" class="transparente ">
+    <ion-item >
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated class="ion-float-right" style="width: 15%"></ion-skeleton-text>
+        <h3>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-card-header>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-card-header>
+  </ion-list>
+  <ion-list *ngIf="datosLeidos == 0" class="transparente ">
+    <ion-item >
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated class="ion-float-right" style="width: 15%"></ion-skeleton-text>
+        <h3>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-card-header>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-card-header>
+  </ion-list>
+  <ion-list *ngIf="datosLeidos == 0" class="transparente ">
+    <ion-item >
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated class="ion-float-right" style="width: 15%"></ion-skeleton-text>
+        <h3>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-card-header>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+    </ion-card-header>
+  </ion-list>
+
+  <!-- END SKELETON -->
+
+  <app-purchases *ngIf="comprasShow.length > 0"
+    [ticktes]="comprasShow" [idUsuario]="dlSvc.usuario.telephone" [esAdministrador]="esAdministrador">
+  </app-purchases>
+
+  <ion-fab *ngIf="segment.value == idUserLogado || segment.value == '0' "
+              vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="addPurchase()" color="amarillo">
+      <ion-icon name="add" ></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

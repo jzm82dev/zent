@@ -1,0 +1,71 @@
+a {
+    color: gray;
+    font-size: 15px;
+  }
+
+  
+.submit-btn {
+  margin-top: 40px;
+}
+
+
+
+
+ion-item {
+  --background: none !important;
+  opacity:1 !important;
+}
+
+
+.alineado {
+  align-items: baseline;
+}
+
+.derecha {
+  margin-right: -20px !important;
+}
+
+.checking-message
+{
+  color: var(--color-yellow); ;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.down {
+  margin-top: 10%;
+}
+
+ion-modal.fullscreen {
+  --width: 100%;
+  --height: 100%;
+  --border-radius: 0;
+}
+
+
+#countdown {
+  position: relative;
+  margin: auto;
+  margin-top: 100px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+}
+
+ion-input {
+  font-size: 50px !important;
+  color: #FFBA08 !important;
+  text-align: center; 
+}
+
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 113px;
+  }
+}
+

@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="titulo-pagina ion-text-left"><h2>Nuevo grupo</h2></ion-title>
+    <div slot="start" >
+       <ion-button fill="clear" color="dark" routerLink="/inicio">
+        <ion-icon style="font-size: 20px;" ios="ios-arrow-back" md="md-arrow-back" routerLink="/inicio"></ion-icon>
+       </ion-button>
+     </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="form-content ion-padding">
+
+
+  <form [formGroup]="sasa_form"  (ngSubmit)="onSubmit(sasa_form.value)" class="down">
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input type="text" autocapitalize="on" formControlName="titulo"></ion-input>
+    </ion-item>
+    <div class="error-message">
+      <ng-container *ngFor="let validation of validation_messages.titulo">
+        <div class="error-message"
+            *ngIf="sasa_form.get('titulo').hasError(validation.type) && (sasa_form.get('titulo').dirty || sasa_form.get('titulo').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <!--
+    <ion-item >
+      <ion-label class="campo-texto-lista espacio-arriba">Incluir Listas de compra</ion-label>
+      <ion-checkbox slot="end" mode="ios" color="amarillo" formControlName="listaCompra"></ion-checkbox>
+    </ion-item>
+    -->
+
+    <ion-item >
+     <ion-label class="espacio">Tipo</ion-label>
+     <ion-select formControlName="tipo"
+                (ionChange)="onSelectType($event)" cancelText="Cancel" okText="OK">
+       <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.id">{{tipo.nombre}}</ion-select-option>
+     </ion-select>
+   </ion-item>
+   <div class="error-message">
+     <ng-container *ngFor="let validation of validation_messages.tipo">
+       <div class="error-message"
+           *ngIf="sasa_form.get('tipo').hasError(validation.type) && (sasa_form.get('tipo').dirty || sasa_form.get('tipo').touched)">
+         <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+       </div>
+     </ng-container>
+   </div>
+
+
+
+    <ion-item (click)="mostrarLoading()">
+      <ion-label class="espacio-arriba">Participantes</ion-label>
+      <ionic-selectable
+        [items]="contactList"
+        [isMultiple]="true"
+        itemValueField="id"
+        itemTextField="name"
+        [canSearch]="true"
+        (onChange)="onSelectChange($event)">
+      </ionic-selectable>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row class="ion-text-center" style="margin-top: 5%">
+        <ion-col>
+            <button ion-button class='button-style' [disabled]="!sasa_form.valid" type="submit" >ACEPTAR</button>  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</form>
+
+
+</ion-content>

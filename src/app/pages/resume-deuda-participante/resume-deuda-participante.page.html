@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" (click)="closeModalDetalle()" color="dark" name="close"></ion-icon>
+    </ion-buttons>
+    <ion-title class="titulo-pagina ion-text-left" >
+      <h2>Resumen deudas</h2>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="form-content ion-padding " >
+
+  <ion-text *ngIf=" participante.id != idUsuarioLogado " >
+    <a href="tel:{{ participante.telefono_usu }}"><h1><strong>Desglose de <span class="link_tlf">{{ participante.name }} </span></strong></h1></a>
+  </ion-text>
+
+  <ion-text *ngIf=" participante.id == idUsuarioLogado ">
+    <h1><strong>Tu desglose</strong></h1>
+  </ion-text>
+
+  <ion-list class="transparente" style="margin-top: 8%;">
+      <ion-item lines="full" *ngFor="let deuda of debe; ">
+        <ion-icon name="remove-circle-outline" slot="start" color="red"></ion-icon>
+        <ion-note slot="end" color="red">{{ deuda.count }} €</ion-note>
+        <ion-label *ngIf=" deuda.telefono_creador != telefonoUsuarioLogado "><span class="texto-quien">{{ deuda.nombre_agenda }} -</span> {{ deuda.title }}</ion-label>
+        <ion-label *ngIf=" deuda.telefono_creador == telefonoUsuarioLogado "><span class="texto-quien">A ti </span> -{{ deuda.title }}</ion-label>
+      </ion-item>
+          
+      <ion-item lines="full" *ngFor="let deuda of leDeben; ">
+        <ion-icon name="add-circle-outline" slot="start" color="green"></ion-icon>
+        <ion-note slot="end" color="green">{{ deuda.count }} €</ion-note>
+        <ion-label *ngIf=" deuda.telefono_deudor != telefonoUsuarioLogado "><span class="texto-quien">{{ deuda.nombre_agenda }} -</span> {{ deuda.title }}</ion-label>
+        <ion-label *ngIf=" deuda.telefono_deudor == telefonoUsuarioLogado "><span class="texto-quien">Tú </span>- {{ deuda.title }}</ion-label>
+      </ion-item>
+        
+      <ion-item *ngIf="leDeben.length == 0 && debe.length == 0">
+        <ion-label class="ion-text-center">
+          <ion-note *ngIf=" participante.id == idUsuarioLogado ">No debes ni te deben nada </ion-note>
+          <ion-note *ngIf=" participante.id != idUsuarioLogado ">No debe ni le deben nada </ion-note>
+        </ion-label>
+      </ion-item>
+           
+  </ion-list>
+
+  
+
+</ion-content>

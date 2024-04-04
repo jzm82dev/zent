@@ -1,0 +1,67 @@
+
+
+
+.class-titulo {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.top {
+  margin-top: 10px;
+}
+
+.lista {
+  height: 80%;
+}
+
+ion-slides, ion-slide{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.campo-texto {
+  color: #edbc37 !important;
+  font-size: 20px !important;
+}
+
+.campo-texto-lista{
+  color: #edbc37 !important;
+  font-size: 20px !important;
+}
+
+ion-content.background {
+    --background: url(../../../assets/img/background.png) no-repeat center center / cover;
+}
+
+ion-item {
+  --background: none !important;
+  --border-color: #edbc37; // default underline color
+  --highlight-color-invalid: red; // invalid underline color
+  --highlight-color-valid: green; // valid underline color
+}
+
+ion-input {
+  color: white !important;
+  font-size: 23px !important;
+}
+
+
+ion-segment-button {
+    background-color: #45413d !important;
+    color: #ff9900 !important;
+    border: none !important;
+    opacity: 0.9 !important;
+}
+
+ion-searchbar{
+  --background: none !important;
+  --border-color: #edbc37; // default underline color
+  --color: #edbc37;
+}
+
+.placeholder{
+  color: #edbc37 !important;
+  font-size: 17px !important;
+}

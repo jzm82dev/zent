@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-title class="title-page-grupo">Seleccione participantes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+
+  <ion-item>
+    <ion-searchbar (keyup)="getContactsAgendaAndroid()"></ion-searchbar>
+    <ion-label>Contactos</ion-label>
+    <!-- <ion-select [interfaceOptions]="customAlertOptions" -->
+    <ion-select
+                interface="alert" multiple="true" placeholder="Select One">
+        <ion-select-option
+            *ngFor="let contact of myContacts"
+                value="{{contact.id}}">
+              {{contact?.displayName}} {{contact.phoneNumbers[ 0 ].value}}
+        </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+
+
+
+</ion-content>

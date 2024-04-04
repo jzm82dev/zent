@@ -1,0 +1,15 @@
+{
+    "ImageIO.framework": 1,
+    "CoreLocation.framework": 1,
+    "AVFoundation.framework": 1,
+    "AddressBook.framework": 1,
+    "AddressBookUI.framework": 1,
+    "WebKit.framework": 1,
+    "Accelerate.framework": 1,
+    "Security.framework": 1,
+    "Photos.framework": 1,
+    "SystemConfiguration.framework": 2,
+    "QuartzCore.framework": 1,
+    "Social.framework": 1,
+    "MessageUI.framework": 1
+}

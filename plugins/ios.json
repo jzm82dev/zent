@@ -1,0 +1,64 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-telerik-imagepicker": {
+      "PHOTO_LIBRARY_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
+      "PHOTO_LIBRARY_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "com-sarriaroman-photoviewer": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    }
+  },
+  "dependent_plugins": {
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.jorgezancada.zent"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+
+
+ion-list {
+  border-radius: 20px;
+}
+
+.transparente {
+  opacity: 0.8 !important;
+  border-radius: 15px;
+}
+
+ion-content.background {
+    --background: url(../../../assets/img/background.png) no-repeat center center / cover;
+}
+
+
+.datos {
+  font-size: 15px;
+  color: #000 ;
+}
+
+.importe {
+  font-size: 15px;
+}
+
+
+.imagen {
+  margin-left: -20px;
+}
+
+h1{
+  color: gray;
+  font-weight: bold;
+}

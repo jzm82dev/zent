@@ -1,0 +1,194 @@
+.item {
+    &-label-stacked,
+    &-label-floating {
+        .select-searchable {
+            align-self: stretch;
+            max-width: 100%;
+            padding-left: 0;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            &-value {
+                padding-top: 0;
+                padding-bottom: 0;
+                min-height: 19px;
+            }
+            &-icon-inner {
+                top: 7px;
+            }
+            &-ios {
+                .select-searchable-value {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    min-height: 20px;
+                }
+                .select-searchable-icon-inner {
+                    top: 8px;
+                }
+            }
+        }
+    }
+    &:not(.item-label-stacked):not(.item-label-floating) {
+        .select-searchable {
+            &-md {
+                .select-searchable-value {
+                    padding-left: $select-md-padding-left;
+                }
+            }
+            &-ios {
+                .select-searchable-value {
+                    padding-left: $select-ios-padding-left;
+                }
+            }
+        }
+    }
+    &-select-searchable {
+        // Vertical allignment for label.
+        .item-inner .input-wrapper {
+            align-items: normal;
+        }
+        ion-label {
+            flex: 1;
+            max-width: initial;
+        }
+    }
+}
+
+.select-searchable {
+    display: flex;
+    max-width: 45%;
+    &:not(.select-searchable-is-enabled) {
+        opacity: 0.4;
+    }
+    &-has-placeholder {
+        .select-searchable-value-item {
+            color: $select-md-placeholder-color;
+        }
+    }
+    &-value {
+        flex: 1;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        overflow: hidden;
+        &-item {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+    }
+    &-icon {
+        position: relative;
+        width: 20px;
+        &-inner {
+            position: absolute;
+            top: 20px;
+            left: 5px;
+            border-top: 5px solid;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            pointer-events: none;
+        }
+    }
+    &-item {
+        &-button {
+            width: 25px;
+        }
+    }
+    &-ios {
+        &.select-searchable-has-placeholder {
+            .select-searchable-value-item {
+                color: $select-ios-placeholder-color;
+            }
+        }
+        .select-searchable-value {
+            padding-top: 11px;
+            padding-bottom: 11px;
+        }
+        .select-searchable-icon {
+            &-inner {
+                top: 19px;
+                color: $select-ios-icon-color;
+            }
+        }
+    }
+    &-md {
+        .select-searchable-icon {
+            &-inner {
+                color: $select-md-icon-color;
+            }
+        }
+    }
+    &-spinner {
+        position: fixed;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        &-background {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            background-color: #000000;
+            opacity: 0.05;
+        }
+        ion-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 10;
+            margin-top: -14px;
+            margin-left: -14px;
+        }
+    }
+    &-add-item-template {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+    }
+}
+
+.select-searchable-page {
+    &-ios {
+        .select-searchable-message {
+            padding: 8px;
+        }
+    }
+    &-md {
+        .select-searchable-message {
+            padding: 8px 12px;
+        }
+    }
+    &.select-searchable-page-can-clear.select-searchable-page-is-multiple {
+        .footer .col:first-child {
+            padding-right: $content-margin / 2;
+        }
+        .footer .col:last-child {
+            padding-left: $content-margin / 2;
+        }
+    }
+    &.select-searchable-page-is-searching {
+        .scroll-content {
+            overflow-y: hidden;
+        }
+    }
+    &.select-searchable-page-is-add-item-template-visible {
+        // Hide scroll from list content.
+        // Use immediate child selector as we don't want to apply the rule
+        // to content inside add item template defined by user.
+        >.content>.scroll-content {
+            overflow-y: hidden;
+        }
+    }
+    ion-footer {
+        ion-toolbar {
+            padding: 5px $content-padding;
+        }
+    }
+}

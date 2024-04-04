@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="amarillo">
+    <ion-title class="title-page-grupo">{{ grupo.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="gris">
+
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title class="texto-title-card">FECHA</ion-card-title>
+      <ion-card-subtitle class="texto-subtitle-card">{{ grupo.fecha_alta | date:'dd MMM yy' }}</ion-card-subtitle>
+      <ion-card-title class="texto-title-card">CREADO POR</ion-card-title>
+      <!-- <ion-card-title class="texto-subtitle-card">{{ grupo.nombre_usuario_creador }}</ion-card-title> -->
+      <ion-card-title class="texto-title-card">DESCRIPCIÓN</ion-card-title>
+      <ion-card-title class="texto-subtitle-card">{{ grupo.descripcion }} akshkjas kjashn akjshn </ion-card-title>
+    </ion-card-header>
+</ion-card>
+
+
+
+</ion-content>

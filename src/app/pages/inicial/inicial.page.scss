@@ -1,0 +1,43 @@
+// Slider Style START 
+
+  ion-item {
+      margin-top: -20px !important;
+  }
+
+  ion-item ion-icon {
+      font-size: 14px;
+  }
+
+  ion-item ion-text {
+      color: gray;
+      font-size: 12px;
+  }
+
+  ion-img {
+      width: 35%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+  }
+
+  p {
+      color: gray;
+      font-size: 12px;
+  }
+
+  a {
+      color: gray;
+      font-weight: bold;
+  }
+
+
+  .vertical-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .swiper-wrapper {
+      margin-top: 40px;
+      color: gray;
+  }

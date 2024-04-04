@@ -1,0 +1,158 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" (click)="closeModalDetalle()" color="dark" name="close"></ion-icon>
+    </ion-buttons>
+    <ion-title class="titulo-pagina ion-text-left" >
+      <h2>Deudas {{ pre }} {{ deudor.nombre_agenda }}</h2>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content class="form-content ion-padding ">
+
+
+  <ion-text >
+    <h1>Me debe</h1>
+  </ion-text>
+
+  <ion-list class="transparente">
+    <ion-item lines="full" *ngFor="let deuda of meDebe; " #slidingItem>
+      <ion-icon name="add-circle-outline" slot="start" color="green"></ion-icon>
+      <ion-note class="datos " slot="end" color="green">{{ deuda.count }} €</ion-note>
+      <ion-label class="datos negro">{{ deuda.title }} </ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="meDebe.length == 0">
+        <ion-label class="ion-text-center"> 
+          <ion-note class="datos ">No me debe nada </ion-note>
+        </ion-label>
+      </ion-item>
+  </ion-list>
+
+   <!-- SKELETON -->
+   <ion-list *ngIf="datosLeidos == 0" class="transparente">
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated class="ion-float-right" style="width: 15%"></ion-skeleton-text>
+        <h3>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </h3>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated class="ion-float-right" style="width: 15%"></ion-skeleton-text>
+        <h3>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+    <ion-text >
+      <h1>Le debo</h1>
+    </ion-text>
+
+    <ion-list class="transparente">
+          <ion-item lines="full" *ngFor="let deuda of leDebo; " #slidingItem>
+            <ion-icon name="remove-circle-outline" slot="start" color="red"></ion-icon>
+            <ion-note class="datos" slot="end" color="red">{{ deuda.count }} €</ion-note>
+            <ion-label class="datos negro">{{ deuda.title }} </ion-label>
+          </ion-item>
+      
+        <ion-item *ngIf="leDebo.length == 0">
+            <ion-label class="ion-text-center">
+              <ion-note class="datos">No le debo nada </ion-note>
+            </ion-label>
+          </ion-item>
+    </ion-list>
+
+     <!-- SKELETON -->
+  <ion-list *ngIf="datosLeidos == 0" class="transparente">
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated class="ion-float-right" style="width: 15%"></ion-skeleton-text>
+        <h3>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </h3>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated class="ion-float-right" style="width: 15%"></ion-skeleton-text>
+        <h3>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+      <ion-text >
+        <h1>Pagado</h1>
+      </ion-text>
+
+      <ion-list class="transparente">
+        <ion-item lines="full" *ngFor="let deuda of meHaPagado; " #slidingItem>
+          <ion-icon name="thumbs-up" slot="start" color="blue"></ion-icon>
+          <ion-note class="datos" slot="end" color="blue">{{ deuda.count }} €</ion-note>
+          <ion-label class="datos negro">{{ deuda.title }} </ion-label>
+        </ion-item>
+
+    
+      <ion-item *ngIf="meHaPagado.length == 0">
+          <ion-label class="ion-text-center">
+            <ion-note class="datos" >No me ha pagado nada </ion-note>
+          </ion-label>
+        </ion-item>
+  </ion-list>
+
+   <!-- SKELETON -->
+   <ion-list *ngIf="datosLeidos == 0" class="transparente">
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated class="ion-float-right" style="width: 15%"></ion-skeleton-text>
+        <h3>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </h3>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated class="ion-float-right" style="width: 15%"></ion-skeleton-text>
+        <h3>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </h3>
+      </ion-label>
+    </ion-item>
+    </ion-list>
+
+
+
+
+
+</ion-content>

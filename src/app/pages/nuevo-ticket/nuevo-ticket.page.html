@@ -1,0 +1,120 @@
+
+
+<ion-header>
+  <ion-toolbar>
+    <div slot="start" >
+      <ion-button fill="clear" (click)="salir()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-title class="titulo-pagina ion-text-left"><h2>Nuevo gasto</h2></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="form-content ion-padding ">
+
+
+    <form [formGroup]="ticket_form"  (ngSubmit)="onSubmit(ticket_form.value)" >
+      
+      <ion-item *ngIf= "esAdministrador" >
+        <ion-label class="espacio">Creador del gasto</ion-label>
+        <ion-select formControlName="telefonoCreadorGasto" [value]="global.usuario.telephone"
+                   (ionChange)="onSelectCreadorPor($event)" cancelText="Cancel" okText="OK">
+          <ion-select-option *ngFor="let usuario of usuariosGrupo" [value]="usuario.telefono_usuario">{{usuario.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating" class="titulo-campo-form">Título</ion-label>
+        <ion-input type="text" maxlength="90" autocapitalize="on" formControlName="titulo"></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ng-container *ngFor="let validation of validation_messages.titulo">
+          <div class="error-message"
+              *ngIf="ticket_form.get('titulo').hasError(validation.type) && (ticket_form.get('titulo').dirty || ticket_form.get('titulo').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+<!--
+      <ion-item>
+        <ion-label position="floating" class="titulo-campo-form">Descripción</ion-label>
+        <ion-input type="text" formControlName="descripcion"></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ng-container *ngFor="let validation of validation_messages.descripcion">
+          <div class="error-message"
+              *ngIf="ticket_form.get('descripcion').hasError(validation.type) && (ticket_form.get('descripcion').dirty || ticket_form.get('descripcion').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+-->
+      <ion-item>
+        <ion-label position="floating" class="titulo-campo-form">Cuantía</ion-label>
+        <ion-input type="number" formControlName="importe"></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ng-container *ngFor="let validation of validation_messages.importe">
+          <div class="error-message"
+              *ngIf="ticket_form.get('importe').hasError(validation.type) && (ticket_form.get('importe').dirty || ticket_form.get('importe').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating" class="titulo-campo-form">Fecha</ion-label>
+        <ion-datetime formControlName="fecha" class="campo-texto" style="color: #000 !important;"
+                       displayFormat="DD-MM-YY"
+                       min="2020-01-01" max="2050-12-31"></ion-datetime>
+      </ion-item>
+      <div class="error-message">
+        <ng-container *ngFor="let validation of validation_messages.fecha">
+          <div class="error-message"
+              *ngIf="ticket_form.get('fecha').hasError(validation.type) && (ticket_form.get('fecha').dirty || ticket_form.get('fecha').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+      <ion-item >
+        <ion-label class="espacio">Participantes del gasto</ion-label>
+        <ion-select formControlName="participantes" multiple  [value]=usuariosGrupo
+                   (ionChange)="onSelectChange($event)" cancelText="Cancel" okText="OK">
+          <ion-select-option *ngFor="let user of usuariosGrupo" [value]="user">{{user.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item (click)="selectImage()">
+        <ion-label class="titulo-campo-form espacio" >Adjunta ticket</ion-label>
+        <!--<ion-label class="img-adjuntada">{{ textoImgAdj }}</ion-label>-->
+        <ion-buttons >
+          <ion-button color="amarillo">
+            <ion-icon slot="icon-only" name="attach" class="espacio"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-icon name="checkmark" color="warning" *ngIf="imageUpload"></ion-icon>
+        <ion-spinner *ngIf="loadingImage" name="lines" color="warning"></ion-spinner>
+      </ion-item>
+
+
+      <ion-grid>
+        <ion-row class="ion-text-center" style="margin-top: 15%">
+          <ion-col>
+              <button ion-button class='button-style' [disabled]="!ticket_form.valid" type="submit" >ACEPTAR</button>  
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </form>
+
+
+</ion-content>

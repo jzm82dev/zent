@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <div slot="start" >
+      <ion-button fill="clear" routerLink="/inicio" color="dark">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-title class="titulo-pagina ion-text-left"><h2>GRUPOS</h2></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher  slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content ></ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-slides [options]="slideOptions"  *ngIf="grupos.length === 0">
+    <ion-slide>
+      <ion-label>No tienes grupos de gasto </ion-label>
+    </ion-slide>
+  </ion-slides>
+
+
+
+  <ion-list style="margin-top: 5%;">
+         
+    <ion-item lines="full" *ngFor="let item of grupos" (click)="openGroup( item.id )">
+      <ion-avatar slot="start">
+        <img src="../../assets/img/group_icon_{{ item.id_tipo }}.png"  >
+        <!-- <img *ngIf="notificacion.foto" [src]="urlPhotos + [notificacion.foto] | imageSanitizer"> -->
+        </ion-avatar>
+        <ion-label>
+          <h2 class="texto-title-gray">{{ item.nombre }}</h2>
+        </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="newGroup()" color="amarillo">
+      <ion-icon name="add" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>

@@ -1,0 +1,63 @@
+
+
+
+<ion-header >
+  <ion-toolbar >
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" (click)="salir()" color="dark" name="close"></ion-icon>
+    </ion-buttons>
+    <ion-label slot="start" class="titulo-pagina"><h2>{{ ticket.title }}</h2></ion-label>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+  <ion-grid > 
+    <ion-row>
+      <ion-col size="4">
+        <img *ngIf="this.ticket.imagen" (click)="viewPhoto()" src="{{ urlImagen }}" alt="ion" class="imagen">
+        <img *ngIf="!this.ticket.imagen" src="../../assets/no-imag.png" class="no-imagen">
+      </ion-col>
+      <ion-col size="8">
+        <ion-row>
+          <ion-col >
+            <ion-note class="ion-float-right ">{{ ticket.date | date:'dd MMM yyyy' }} </ion-note>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-text-right">
+             Creado por {{ ticket.user_id == global.usuario.id ? 'ti' : ticket.nombre_agenda }} 
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="ion-text-right ">
+            {{ticket.count }} €
+          </ion-col>
+        </ion-row>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="hr"> </div>
+
+  <ion-grid>
+    <ion-row>
+        <ion-col>
+            <ion-text class="texto-title-gray"> Participantes</ion-text>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list lines="none">
+    <ion-item *ngFor="let participante of participantes">
+      <ion-icon *ngIf="participante.id" slot="start" ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline" color="secondary"></ion-icon>
+      <ion-icon *ngIf="!participante.id" slot="start" ios="ios-remove-circle" md="md-remove-circle" ></ion-icon>
+      <ion-label>
+        {{ participante.idUsuario == global.usuario.id ? 'Tú' : participante.nombre }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

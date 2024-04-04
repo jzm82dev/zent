@@ -1,0 +1,44 @@
+
+.texto {
+  color: #edbc37;
+}
+
+ion-content.background {
+    --background: url(../../../assets/img/background.png) no-repeat center center / cover;
+}
+
+.transparente {
+  opacity: 0.8 !important;
+  border-radius: 15px;
+}
+
+ion-list-header {
+  font-weight: bold;
+  opacity: 1 !important;
+}
+
+.name_user {
+  color: green;
+  font-weight: bold;
+}
+
+.date_ago {
+  margin-right: 0px !important;
+}
+
+.top{
+  margin-top: 10px;
+}
+
+ion-slides, ion-slide{
+  width: 100%;
+  height: 100%;
+}
+
+.texto-title-card {
+  color: white;
+}
+
+ion-note {
+  font-size: 14px !important;
+}

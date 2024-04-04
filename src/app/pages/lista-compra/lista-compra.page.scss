@@ -1,0 +1,31 @@
+
+
+
+.nombre {
+    color: #edbc37;
+    font-size: 25px;
+}
+
+.fecha {
+  color: gray;
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+.top-20{
+    margin-top: 20px;
+}
+
+ion-content.background {
+    --background: url(../../../assets/img/background.png) no-repeat center center / cover;
+}
+
+ion-item {
+  --background: none !important;
+  --border-color: #edbc37; // default underline color
+}
+
+.campo-texto-lista{
+  color: #edbc37 !important;
+  font-size: 20px !important;
+}

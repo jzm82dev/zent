@@ -1,0 +1,100 @@
+
+
+
+ion-segment-button {
+    background-color: #45413d !important;
+    color: #ff9900 !important;
+    border: none !important;
+    opacity: 0.9 !important;
+}
+
+.segment-button-checked {
+    color: var( --ion-color-primary ) !important;
+}
+
+ion-note{
+  font-size: 15px;
+}
+
+ion-slides, ion-slide{
+    width: 100%;
+    height: 100%;
+}
+
+
+.importe-pagado {
+    font-size: 25px !important;
+    position: absolute;
+    right: 25px;
+    bottom: 8px;
+    color: red !important;
+}
+
+.importe-no-pagado {
+    font-size: 25px !important;
+    position: absolute;
+    right: 25px;
+    bottom: 8px;
+    color: green !important;
+}
+
+.nombre {
+    color: var( --ion-color-success ) !important;
+    font-size: 20px;
+}
+
+.fecha {
+    font-size: 20px !important;
+    position: absolute;
+    right: 25px;
+    bottom: 5px;
+    color: var( --ion-color-primary ) !important;
+}
+
+.por-comprar {
+  color: var( --ion-color-danger ) !important;
+}
+
+.tarjeta {
+    width: 100%;
+}
+
+.description {
+  color: gray !important;
+  margin-top: 10px;
+}
+
+.gasto {
+  border-radius: 13px;
+}
+
+#deleteDiv {
+  display: none;
+}
+
+.col-delete {
+  border-color: #edbc37;
+  border-width: 3px;
+  background-color: #edbc37;
+  border-radius: 7px;
+}
+
+.col-finish {
+  border-color: #edbc37;
+  border-width: 3px;
+  background-color: orange;
+  border-radius: 7px;
+}
+
+
+ion-item-option {
+  border-radius: 10px !important;
+}
+
+.texto-title-card {
+  color: white;
+}
+
+ion-content.background {
+    --background: url(../../../assets/img/background.png) no-repeat center center / cover;
+}
